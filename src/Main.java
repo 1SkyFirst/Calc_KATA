@@ -1,13 +1,16 @@
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 //приветствие
         System.out.println("Привет Юзер =)");
         System.out.println("Я калькулятор Вася");
         System.out.println("Я умею складывать (+), вычитать(-), делить(/) и умножать(*)");
         System.out.println("Числа от 1 до 10 арабские и от I до X римские");
         System.out.println("Введите значения через пробел");
+        String input = null;
+        System.out.println(calc(input));}
+    public static String calc(String input) throws Exception{
  //переменные
         boolean n1rome = false, n2rome = false;
         int n1real = 0, n2real = 0, rezultrim = 0;
@@ -54,20 +57,21 @@ public class Main {
                 i++;
             }
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
+            //System.out.println("throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
+            e.getStackTrace();
             System.exit(0);
         }
 
             if (null == razbienie[0] || razbienie[0].isEmpty()) {
-                System.out.println("throws Exception //т.к. строка не является математической операцией");
+                System.out.println("строка не является математической операцией");
                 System.exit(0);
             }
             if (null == razbienie[2] || razbienie[2].isEmpty()){
-                System.out.println("throws Exception //т.к. строка не является математической операцией");
+                System.out.println("строка не является математической операцией");
                 System.exit(0);
             }
             if (razbienie[1].length() > 1){
-                System.out.println("throws Exception //т.к. строка не является математической операцией");
+                System.out.println("строка не является математической операцией");
                 System.exit(0);
             }
 
@@ -91,7 +95,7 @@ public class Main {
             n2rome=true;
         }
 if (n2rome != n1rome) {
-    System.out.println("throws Exception //т.к. используются одновременно разные системы счисления");
+    System.out.println("используются одновременно разные системы счисления");
 }else if (n1rome == true) {
     if (razbienie[0].equals(rim[3]))  n1real = 4;
         else
@@ -201,13 +205,13 @@ if (n1real<0); else if (n1real>10.1); else if (n2real<0); else if (n2real>10.1);
             }
             for (i = 0; i < rezultrimbig.length;i++){
                 if (rezultrimbig[i] != null)
-            System.out.print(rezultrimbig[i]);}
+                    System.out.print(rezultrimbig[i]);}
 //            System.out.println(convert[1]);
             i = Character.getNumericValue(convert[1]);
             i = i - 1;
 //            System.out.println(i);
             if (i>0)
-            System.out.print(rim[i]);
+                System.out.print(rim[i]);
         }
 
     }
@@ -224,20 +228,20 @@ if (num1<0); else if (num1>10.1); else if (num2<0); else if (num2>10.1); else {
             for (int b = 0, n = zadacha1.length; b < n; b++) {
                 switch (zadacha1[b]) {
                     case '+':
-                        System.out.println(num1 + num2);
+                        input = String.valueOf (num1 + num2);
                         break;
                     case '-':
-                        System.out.println(num1 - num2);
+                        input = String.valueOf(num1 - num2);
                         break;
                     case '*':
-                        System.out.println(num1 * num2);
+                        input = String.valueOf(num1 * num2);
                         break;
                     case '/':
-                        System.out.println(num1 / num2);
+                        input = String.valueOf(num1 / num2);
                         break;
                 }
                 }
             }
-        }
+        return (input);}
     }
 
